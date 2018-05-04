@@ -149,6 +149,13 @@ contract MentatTasks {
     }
     
     function agentAdd(string _name, string _email, address _ethAddress) public {
+        /**
+         * @dev Add a new agent to agent constructor
+         * @param _name The agent´s name
+         * @param _email The agent´s e-mail
+         * @param _ethAddress The Ethereum account of the agent
+         * @return N/A
+         */    
         uint i = agents.push();
         agents[i].createdAt = now;
         agents[i].name = _name;
