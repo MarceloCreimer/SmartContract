@@ -148,9 +148,16 @@ contract MentatTasks {
         
     }
     
-    function agentAdd() {
-        
+    function agentAdd(string _name, string _email, address _ethAddress) public {
+        uint i = agents.push();
+        agents[i].createdAt = now;
+        agents[i].name = _name;
+        agents[i].email = _email;
+        agents[i].ethAddress = _ethAddress;
+        agents[i].isOffLine = false;
+        agents[i].isBusyNow = false;
     }
+
     
     function agentRemove() {
         
@@ -161,7 +168,6 @@ contract MentatTasks {
 Other functions to be implemented:
 
     agentUpdate()
-    agentsListing()
     agentTurnOnLine()
     agentTurnOffLine()
     agentTurnBusy()
