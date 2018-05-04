@@ -165,6 +165,25 @@ contract MentatTasks {
         agents[i].isBusyNow = false;
     }
 
+    function setAgentLogin(address _ethAddress) public {
+        /**
+         * @dev Mark agent is logged into the system
+         * @param _ethAddress The agent´s Ethereum address
+         * @return N/A
+         */
+        uint index;
+        for(uint i = 0; j < agents.length-1; i++) {
+            if agents[i].ethAddress == _ethAddress {
+                index = i;
+            }
+        }
+        agents[index].isOffLine = false;
+
+        uint j = agentHistorys.push();
+        agentHistorys.agentEthAddress = _ethAddress;
+        agentHistorys.loginDateTime = now;
+    }   
+
     
     function agentRemove() {
         
@@ -202,7 +221,6 @@ Other functions to be implemented:
     buyerUpdate()
     buyerDelete()
     
-    setAgentLogin()
     setAgentLogout()
     
     
